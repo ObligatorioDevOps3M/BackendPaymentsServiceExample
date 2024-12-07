@@ -76,7 +76,7 @@ jobs:
       env:
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
       run: |
-        VALUE=$(cat devops-repo-directory/terraform/options-${{ env.ENVIROMENT_NAME }}/payments.txt)
+        VALUE=$(cat devops-repo-directory/terraform/options-${{ env.ENVIROMENT_NAME }}/ecr_repository_uri_payments.txt)
         REPOSITORY_URI=$VALUE 
         echo "IMAGE_NAME=$VALUE:${{ env.ENVIROMENT_NAME }}" >> $GITHUB_ENV
         docker build . --file Dockerfile --tag $VALUE:${{ env.ENVIROMENT_NAME }}
