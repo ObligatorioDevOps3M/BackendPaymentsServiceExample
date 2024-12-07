@@ -21,7 +21,7 @@ spec:
         image: ${IMAGE_NAME}
         imagePullPolicy: Always
         ports:
-        - containerPort: 4040
+        - containerPort: 8083
   strategy:
     type: RollingUpdate
     rollingUpdate:
