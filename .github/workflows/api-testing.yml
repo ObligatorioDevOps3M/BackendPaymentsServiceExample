@@ -8,24 +8,33 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      # Identificación de entorno
       - name: Set branch name
-        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+        run: |
+          BRANCH_NAME=${GITHUB_REF##*/}
+          if [[ "$BRANCH_NAME" == "main" ]]; then
+            echo "CUSTOM_ENV_VAR=main" >> $GITHUB_ENV
+          elif [[ "$BRANCH_NAME" == staging ]]; then
+            echo "CUSTOM_ENV_VAR=staging" >> $GITHUB_ENV
+          else
+            echo "CUSTOM_ENV_VAR=develop" >> $GITHUB_ENV 
+          fi
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendOrdersServiceExample
-          ref: ${{ env.BRANCH_NAME }} #porque se necesita el ref para que se ejecute en la rama que se esta trabajando ej.: feature/add-new-endpoint
+          ref: ${{ env.CUSTOM_ENV_VAR }} #porque se necesita el ref para que se ejecute en la rama que se esta trabajando ej.: feature/add-new-endpoint
           path: BackendOrdersServiceExample
 
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendProductsServiceExample
-          ref: ${{ env.BRANCH_NAME }}
+          ref: ${{ env.CUSTOM_ENV_VAR }}
           path: BackendProductsServiceExample
 
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendPaymentsServiceExample
-          ref: ${{ env.BRANCH_NAME }}
+          ref: ${{ env.CUSTOM_ENV_VAR }}
           path: BackendPaymentsServiceExample
 
       - uses: actions/checkout@v4
