@@ -8,28 +8,30 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Set branch name
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendOrdersServiceExample
-          ref: ${{ github.ref }} #porque se necesita el ref para que se ejecute en la rama que se esta trabajando ej.: feature/add-new-endpoint
+          ref: ${{ env.BRANCH_NAME }} #porque se necesita el ref para que se ejecute en la rama que se esta trabajando ej.: feature/add-new-endpoint
           path: BackendOrdersServiceExample
 
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendProductsServiceExample
-          ref: ${{ github.ref }}
+          ref: ${{ env.BRANCH_NAME }}
           path: BackendProductsServiceExample
 
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendPaymentsServiceExample
-          ref: ${{ github.ref }}
+          ref: ${{ env.BRANCH_NAME }}
           path: BackendPaymentsServiceExample
 
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendShippingServiceExample
-          ref: ${{ github.ref }}
+          ref: ${{ env.BRANCH_NAME }}
           path: BackendShippingServiceExample
 
       - name: Set up JDK 8
