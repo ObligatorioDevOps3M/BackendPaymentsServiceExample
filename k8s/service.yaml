@@ -9,7 +9,7 @@ spec:
     app: payments
 
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8083
+      targetPort: 8083
 
   type: LoadBalancer
