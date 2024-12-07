@@ -102,7 +102,7 @@ jobs:
     
       - name: Run integration tests with Newman
         run: |
-          newman run ./BackendOrdersServiceExample/src/test/API_Orders.postman_collection.json \
+          newman run ./BackendOrdersServiceExample/src/test/API_Payments.postman_collection.json \
             --reporters cli \
             --env-var orders_url="http://orders-service:8081/orders" \
             --env-var products_url="http://product-service:8080/products" \
