@@ -17,7 +17,6 @@ spec:
     spec:
       containers:
       - name: payments
-      #Parametrizar
         image: ${IMAGE_NAME}
         imagePullPolicy: Always
         ports:
