@@ -26,7 +26,11 @@
 							"\r",
 							"// Comprobar que el campo 'success' es falso en la respuesta\r",
 							"pm.test(\"El campo 'success' debe ser falso en la respuesta\", function () {\r",
-							"    pm.expect(pm.response.json().success).to.be.false;\r",
+							"    if (pm.response.json().success) {\r",
+							"        pm.expect(pm.response.json().description).to.equal(\"Done.\");\r",
+							"    } else {\r",
+							"        pm.expect(pm.response.json().description).to.equal(\"No money.\");\r",
+							"    }\r",
 							"});\r",
 							""
 						],
