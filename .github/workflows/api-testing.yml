@@ -8,7 +8,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      # Identificación de entorno
+      # Identificación de rama
       - name: Set branch name
         run: |
           BRANCH_NAME=${GITHUB_REF##*/}
