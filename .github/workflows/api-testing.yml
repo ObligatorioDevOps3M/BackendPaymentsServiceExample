@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: ObligatorioDevOps3M/BackendPaymentsServiceExample
-          ref: ${{ env.CUSTOM_ENV_VAR }}
+          ref: ${{ github.ref }}
           path: BackendPaymentsServiceExample
 
       - uses: actions/checkout@v4
