@@ -83,7 +83,7 @@ jobs:
         kubectl apply -f k8s/deployment-updated.yaml
         kubectl apply -f k8s/service.yaml
 
-  # Espera la generacion del service
+  # Espera la generación del service
     - name: Wait for service deploy
       run: sleep 20
 
