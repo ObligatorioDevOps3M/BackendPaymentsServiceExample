@@ -25,7 +25,7 @@ jobs:
     - name: Build and Test with Maven
       run: mvn -B package --file pom.xml
     
-  # Identificación de entorno
+  #Identificación de entorno
     - name: Set Environment
       run: |
         echo "DATE=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
