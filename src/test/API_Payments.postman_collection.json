@@ -4,7 +4,7 @@
 		"name": "API_Payments",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "8226521",
-		"_collection_link": "https://proyecto-final-ort-orue-rivero.postman.co/workspace/ObligatorioDevOps3M~6795b0df-c2ae-4e20-b455-acd598172048/collection/8226521-fa95cf48-a583-4922-8e97-57b4d59cf735?action=share&source=collection_link&creator=8226521"
+		"_collection_link": "https://proyecto-final-ort-orue-rivero.postman.co/workspace/6795b0df-c2ae-4e20-b455-acd598172048/collection/8226521-fa95cf48-a583-4922-8e97-57b4d59cf735?action=share&source=collection_link&creator=8226521"
 	},
 	"item": [
 		{
@@ -56,10 +56,32 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "API_GATEWAY_IP",
-			"value": "localhost:8084",
+			"value": "localhost:8083",
 			"type": "default"
 		}
 	]
